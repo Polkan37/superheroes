@@ -1,0 +1,27 @@
+.hero {
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 40px;
+
+    &-remove__button {
+        background-color: #ac3b61;
+        height: 32px;
+        color: white;
+        border-radius: 4px;
+        width: 70px;
+        border: none;
+    }
+
+    &-remove__button:hover {
+        cursor: pointer;
+    }
+
+    &__image {
+        object-fit: none;
+        object-position: top; 
+        width: 100%;
+        max-height: 200px;
+        margin-bottom: 1rem;
+      }
+}

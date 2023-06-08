@@ -1,0 +1,30 @@
+.add-form {
+    margin: 30px 0px;
+
+    &__input {
+        height: 45px;
+        width: 300px;
+        border: 1px solid #e4f2f7;
+        border-radius: 6px;
+        padding: 2px 10px;
+        margin-right: 10px;
+    }
+
+    &__input:focus {
+        box-shadow: 0 0 8px rgba(142, 228, 175, 0.6);
+        outline: none;
+    }
+
+    &__button {
+        height: 49px;
+        width: 100px;
+        border: none;
+        border-radius: 6px;
+        background-color: #05386b;
+        color: white;
+    }
+
+    &__:hover {
+        cursor: pointer;
+    }
+}
