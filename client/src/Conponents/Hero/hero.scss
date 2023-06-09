@@ -17,9 +17,25 @@
         cursor: pointer;
     }
 
-    &__image {
-        object-fit: none;
-        width: 100%;
-        height: 280px;
-      }
 }
+
+.card > .carousel > .carousel-inner > .carousel-item > .hero__image {
+    object-fit: none;
+    object-position: center top;
+    width: 100%;
+    height: 280px;
+  }
+  
+  .hero__no-image {
+    object-fit: none;
+    object-position: center top;
+    width: 100%;
+    height: 280px;
+  }
+
+  .info > .carousel > .carousel-inner > .carousel-item > .hero__image {
+    max-height: 500px;
+    object-position: center top;
+    margin: 0 auto;
+    object-fit: fill;
+  }

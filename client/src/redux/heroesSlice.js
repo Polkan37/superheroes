@@ -9,7 +9,6 @@ export const heroesSlice = createSlice({
             const newHero = {
                 ...action.payload,
                 id: action.payload.id ? action.payload.id : uuid(),
-                nickname: action.payload.nickname,
             }
             state.push(newHero);
         },

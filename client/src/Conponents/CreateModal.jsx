@@ -8,18 +8,16 @@ import {
   MDBModalContent,
   MDBModalHeader,
   MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
 } from "mdb-react-ui-kit";
 import CreateForm from './CreateForm/CreateHeroForm';
 
-function Modal() {
+function CreateModal() {
   const [staticModal, setStaticModal] = useState(false);
   const [modalContent, setModalContent] = useState('...');
 
   const toggleShow = () => {
     setStaticModal(!staticModal);
-    setModalContent(<CreateForm />)
+    setModalContent(<CreateForm show={setStaticModal} />)
   };
 
   return (
@@ -47,13 +45,7 @@ function Modal() {
                 onClick={toggleShow}
               ></MDBBtn>
             </MDBModalHeader>
-            <MDBModalBody>{modalContent}</MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color="secondary" onClick={toggleShow}>
-                Close
-              </MDBBtn>
-              <MDBBtn>Create</MDBBtn>
-            </MDBModalFooter>
+            {modalContent}
           </MDBModalContent>
         </MDBModalDialog>
       </MDBModal>
@@ -61,4 +53,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default CreateModal;

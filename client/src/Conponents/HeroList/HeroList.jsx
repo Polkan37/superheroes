@@ -4,18 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { addHero } from "../../redux/heroesSlice";
 import Hero from "../Hero/Hero";
 import "./heroList.scss";
-import Modal from "../Modal";
+import CreateModal from "../CreateModal";
 
 const HeroList = () => {
   const [data, setData] = useState([]);
 
   const dispatch = useDispatch();
-  console.log("data: ", data);
 
   const heroes = useSelector((state) => {
     return state.heroes;
   });
-  console.log("heroes", heroes);
 
   useEffect(() => {
     fetch("/api/heroes").then(async (res) => {
@@ -40,7 +38,7 @@ const HeroList = () => {
             </div>
           )}
 
-          <Modal />
+          <CreateModal />
         </MDBRow>
       </MDBContainer>
     </>
