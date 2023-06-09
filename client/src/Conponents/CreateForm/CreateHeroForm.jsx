@@ -20,7 +20,7 @@ const AddTodo = () => {
 
 		dispatch(
 			addHero({
-				hero: value
+				nickname: value
 			})
 		);
 

@@ -4,3 +4,27 @@
     margin: auto;
     padding : 0px;
   }
+.add-item-button {
+  margin-left: 1rem;
+  position: relative;
+  max-width: 292px;
+  height: 396px;
+  background: #e7e7e7;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  &:after {
+    content: '+';
+    font-size: 150px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -55%);
+  }
+
+  &:hover {
+    opacity: .7;
+  }
+
+}
