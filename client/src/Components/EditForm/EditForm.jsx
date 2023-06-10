@@ -1,26 +1,59 @@
 import React from "react";
-import { MDBRow, MDBInput, MDBTextArea, MDBBtn } from "mdb-react-ui-kit";
+import { useDispatch } from "react-redux";
+import { updateHero } from "../../redux/heroesSlice";
+import {
+  MDBRow,
+  MDBInput,
+  MDBTextArea,
+  MDBBtn,
+  MDBInputGroup,
+} from "mdb-react-ui-kit";
+import { updateData } from "../../helpers/sendData";
+import { home } from "../../Constants/homeUrl";
 import Slider from "../Slider";
 
-export function EditForm({ heroInfo, setHeroInfo }) {
-  const [data, setData] = React.useState({...heroInfo});
+export function EditForm({ heroInfo, setHeroInfo, closeEditor }) {
+  const [data, setData] = React.useState({ ...heroInfo });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // take data to submit
-    console.log("saving", data.id);
-    setHeroInfo(data)
+    await updateData(`${home}api/heroes/${heroInfo.id}`, data);
+
+    dispatch(updateHero(data));
+    setHeroInfo(data);
+    closeEditor();
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <MDBInput className="form-control" type="file">
-        <img src={data.images[0]} alt={data.nickname} />
-      </MDBInput>
+      <img
+        className="carousel__image"
+        src={
+          data.images.length
+            ? `${home}${data.images[0]}`
+            : "https://wwwen.uni.lu/var/storage/images/media/images/lcl_images/no_picture/1416637-1-fre-FR/no_picture.png"
+        }
+        alt=""
+      />
+      <MDBInputGroup className="mb-3">
+        <input
+          className="form-control"
+          type="file"
+          onChange={(event) => {
+            setData({
+              ...data,
+              ...(data.images.length ? { current_link: data.images[0] } : {}),
+              image: event.target.files[0],
+            });
+          }}
+          multiple
+        />
+      </MDBInputGroup>
       <MDBRow className="m-2 g-3 align-items-center">
         <MDBInput
           label="nickname"

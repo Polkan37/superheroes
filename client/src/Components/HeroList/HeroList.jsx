@@ -3,8 +3,9 @@ import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import { useSelector, useDispatch } from "react-redux";
 import { addHero } from "../../redux/heroesSlice";
 import Hero from "../Hero/Hero";
-import "./heroList.scss";
 import Pagination from "../Pagination/Pagination";
+import { home } from "../../Constants/homeUrl";
+import "./heroList.scss";
 const HeroList = () => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
@@ -20,14 +21,19 @@ const HeroList = () => {
   const nPages = Math.ceil(heroes.length / recordsPerPage);
 
   useEffect(() => {
-    fetch("/api/heroes").then(async (res) => {
-      const data = await res.json();
-      const result = data.heros;
-      setData(result);
-      result.map((value) => {
-        dispatch(addHero(value));
+    fetch(`${home}api/heroes`)
+      .then(async (res) => {
+        const data = await res.json();
+        setData(data);
+        if (data?.length) {
+          data.map((value) => {
+            dispatch(addHero(value));
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    });
   }, [dispatch]);
 
   return (

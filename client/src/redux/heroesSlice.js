@@ -12,12 +12,21 @@ export const heroesSlice = createSlice({
             }
             state.push(newHero);
         },
+        updateHero: (state, action) => {
+            const heroIndex = state.findIndex(item => item.id === action.payload.id)
+            const updatedHero = action.payload
+            return [
+                ...state.slice(0, heroIndex),
+                updatedHero,
+                ...state.slice(heroIndex + 1)
+            ]
+        },
         deleteHero: (state, action) => {
             return state.filter((item) => item.id !== action.payload.id);
         }
     }
 });
 
-export const { addHero, deleteHero } = heroesSlice.actions;
+export const { addHero, updateHero, deleteHero } = heroesSlice.actions;
 
 export default heroesSlice.reducer;
