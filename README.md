@@ -12,7 +12,11 @@ then make:
 ```
 in /client and in /server separately.
 
-
+Add in .env file for server
+```bash
+MONGO_CONN_STRING=mongodb://root:example@localhost:27017/database?authSource=admin&authMechanism=SCRAM-SHA-256
+PORT=3001
+```
 
 
 
