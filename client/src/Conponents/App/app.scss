@@ -1,5 +1,6 @@
 .header {
-    background-color: #6db6ff !important;
+  position: relative;
+  background-color: #6db6ff !important;
   
   &__title{
     margin: 0;
@@ -18,7 +19,8 @@
     text-align: center;
     background-color: white;
     height: auto;
-    padding : 10px 30px 50px 30px;
+    padding : 20px;
     box-shadow: 2px 2px 20px #ececec;
     border-radius: 20px;
   }
+

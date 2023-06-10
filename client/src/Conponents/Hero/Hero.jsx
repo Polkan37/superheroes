@@ -7,11 +7,11 @@ import {
   MDBCardTitle,
   MDBBtn,
   MDBCol,
+  MDBCardImage
 } from "mdb-react-ui-kit";
 import { useSelector } from "react-redux";
 import "./hero.scss";
-import Slider from "../Slider";
-import InfoModal from "../InfoModal";
+import InfoModal from "../Modals/InfoModal";
 
 const Hero = ({ data }) => {
   const { id, nickname, images } = data;
@@ -40,9 +40,9 @@ const Hero = ({ data }) => {
   }
 
   return (
-    <MDBCol className="mb-3" md="4">
+    <MDBCol className="mb-2 hero-card">
       <MDBCard>
-        <Slider images={images} />
+        <MDBCardImage className="hero__image " src={images.length ? images[0] : 'https://wwwen.uni.lu/var/storage/images/media/images/lcl_images/no_picture/1416637-1-fre-FR/no_picture.png'} position='top' alt={nickname} />
         <MDBCardBody className="pt-2">
           <MDBCardTitle>{nickname}</MDBCardTitle>
           {info}

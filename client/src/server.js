@@ -30,6 +30,13 @@ export function makeServer({ environment = "test" } = {}) {
         return schema.heros.create(attrs);
       });
 
+      this.patch("/heroes:id", (schema, request) => {
+        let newAttrs = JSON.parse(request.requestBody);
+        let id = request.params.id;
+        let hero = schema.heros.find(id);
+        return hero.update(newAttrs);
+      });
+
       this.delete("/heroes/:id", (schema, request) => {
         const id = request.params.id;
 

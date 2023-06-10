@@ -1,21 +1,23 @@
 
 .heroes-list{
     list-style: none;
-    margin: auto;
+    margin: 0 auto;
     padding : 0px;
   }
 .add-item-button {
   margin: auto 1rem;
-  position: relative;
-  max-width: 15rem;
-  height: 20rem;
+  position: absolute;
+  top: 1.3rem;
+  right: .2rem;
+  max-width: 3rem;
+  height: 3rem;
   background: #e7e7e7;
   border-radius: 10px;
   box-sizing: border-box;
 
   &:after {
     content: '+';
-    font-size: 150px;
+    font-size: 40px;
     color: rgb(255, 255, 255);
     position: absolute;
     top: 50%;
@@ -28,3 +30,21 @@
   }
 
 }
+.hero-card {
+  max-width: 15rem;
+}
+@media (min-width: 575.98px) { 
+  .hero-card {
+    width: 100%;
+  }
+ }
+ @media (min-width: 991.98px) { 
+  .hero-card {
+    width: 25%;
+  }
+ }
+ @media (min-width: 1199.98px) { 
+  .hero-card {
+    width: 20%;
+  }
+ }

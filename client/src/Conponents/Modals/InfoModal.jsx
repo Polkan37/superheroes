@@ -12,19 +12,12 @@ import {
   MDBModalBody,
   MDBModalFooter,
 } from "mdb-react-ui-kit";
-import Slider from "./Slider";
-import { EditForm } from "./EditForm/EditForm";
+import Slider from "../Slider";
+import { EditForm } from "../EditForm/EditForm";
 
 function InfoModal({ show, setShow, data }) {
-  const { nickname, real_name, origin_description, superpowers, catch_phrase, images } = data
-  const [heroInfo, setHeroInfo] = useState({
-    nickname,
-    real_name,
-    origin_description,
-    superpowers,
-    catch_phrase,
-    images
-  })
+  const { id, nickname, real_name, origin_description, superpowers, catch_phrase, images } = data
+  const [heroInfo, setHeroInfo] = useState({ ...data})
   const [aboutBody, setAboutBody] = useState(showInfo());
   const [staticModal, setStaticModal] = useState(show);
 

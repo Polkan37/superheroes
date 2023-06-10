@@ -9,7 +9,7 @@ import {
   MDBModalHeader,
   MDBModalTitle,
 } from "mdb-react-ui-kit";
-import CreateForm from './CreateForm/CreateHeroForm';
+import CreateForm from '../CreateForm/CreateHeroForm';
 
 function CreateModal() {
   const [staticModal, setStaticModal] = useState(false);

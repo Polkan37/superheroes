@@ -9,7 +9,7 @@ function Slider({ images }) {
           return (
             <MDBCarouselItem
               key={index}
-              className="d-block hero__image"
+              className="d-block carousel__image"
               itemId={index + 1}
               src={image}
               alt="..."
@@ -25,7 +25,7 @@ function Slider({ images }) {
           return (
             <MDBCarouselItem
               key={index}
-              className="d-block hero__image"
+              className="d-block carousel__image"
               itemId={index + 1}
               src={image}
               alt="..."
